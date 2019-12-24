@@ -8,6 +8,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import FoodCategoryItem from './FoodCategoryItem.component'
 
 // 0list-group-item list-group-item-success
 
@@ -25,25 +26,24 @@ class FoodList extends Component {
         console.log(this.state)
 
         return (
-            <div>
+            
                 <Container >
                     <GridList cellHeight={180} className>
                         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} >
                             <ListSubheader component="div">Where Food is Bae</ListSubheader>
                         </GridListTile>
-                        {this.state.listitems.map(item => (
-                            <GridListTile key={item.img}>
-                                <img src={item.img} alt={item.title} cols={item.cols || 1} />
-                                <GridListTileBar
-                                    title={item.title}
-                                    subtitle={<span>Prices Starting at: {item.price}</span>}
-                                />
+                        {this.state.listitems.map(({id, title, url, price, img}) => (
+                            <GridListTile key={id}>
+                                <img src={img} alt={title} cols={1} />
+                           
+                              <FoodCategoryItem price={price} title={title}/>
 
                             </GridListTile>
+
                         ))}
                     </GridList>
                 </Container>
-            </div>
+     
         );
     }
 }
