@@ -26,24 +26,24 @@ class FoodList extends Component {
         console.log(this.state)
 
         return (
-            
-                <Container >
-                    <GridList cellHeight={180} className>
-                        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} >
-                            <ListSubheader component="div">Where Food is Bae</ListSubheader>
+
+            <Container >
+                <GridList cellHeight={180} className>
+                    <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} >
+                        <ListSubheader component="div">Where Food is Bae</ListSubheader>
+                    </GridListTile>
+                    {this.state.listitems.map(({ id, title, link, price, img }) => (
+                        <GridListTile key={id}>
+                            <img src={img} alt={title} cols={1} />
+
+                            <FoodCategoryItem price={price} title={title} link={link} />
+
                         </GridListTile>
-                        {this.state.listitems.map(({id, title, url, price, img}) => (
-                            <GridListTile key={id}>
-                                <img src={img} alt={title} cols={1} />
-                           
-                              <FoodCategoryItem price={price} title={title}/>
 
-                            </GridListTile>
+                    ))}
+                </GridList>
+            </Container>
 
-                        ))}
-                    </GridList>
-                </Container>
-     
         );
     }
 }
