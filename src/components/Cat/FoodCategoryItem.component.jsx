@@ -13,6 +13,7 @@ function FoodCategoryItem({id, img, url, price, title, history, link, match,}) {
              <GridListTileBar key={id}
                    title={title}
                    subtitle={<span>Prices Starting at: {price} </span>}
+                   subtitle={<span>CLICK HERE TO ORDER</span>}
                />
             
         </div>

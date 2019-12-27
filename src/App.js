@@ -5,9 +5,8 @@ import { Route } from 'react-router-dom';
 import MexicanPage from './pages/Categories/Mexican/Mexican.component'
 import BBQPage from './pages/Categories/Bbq/Bbq.component'
 import ChinesePage from './pages/Categories/Chinese/Chinese.component'
-
-
  import JamaicanPage from './pages/Categories/Jamaican/Jamaican.component'
+ import Shop from './pages/Shop/Shop.component'
 
 
 function App() {
@@ -22,6 +21,7 @@ function App() {
       <Route  path='/jamaican/' component={JamaicanPage} />
       <Route  path='/chinese/' component={ChinesePage} />
       <Route  path='/bbq/' component={BBQPage} />
+      <Route path='/shop' component={Shop} />
 
 
 

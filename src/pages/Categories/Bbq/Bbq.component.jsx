@@ -37,8 +37,7 @@ class Bbq extends Component {
 
     render() {
         return (
-            <div>
-jjj
+            <div>BBQ COMPONENT 
             </div>
         );
     }
