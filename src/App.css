@@ -43,5 +43,6 @@
 
 .padding{
   margin: 20px;
-  background-color: 'red'
+ 
+  align-content: center;
 }

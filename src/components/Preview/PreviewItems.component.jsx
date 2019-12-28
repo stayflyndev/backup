@@ -12,7 +12,7 @@ import '../../App.css'
 
 const useStyles = makeStyles({
     card: {
-        padding: '20px',
+        padding: '5px',
         margin: '20px',
         backgroundColor: '#ff980099'
     },
@@ -26,7 +26,7 @@ function PreviewItems({ items, title }) {
     const classes = useStyles();
     console.log({ items })
     return (
-        <div className="padding">
+        <div className>
 
             <Card className={classes.card}>
                 <CardActionArea>
@@ -38,15 +38,15 @@ function PreviewItems({ items, title }) {
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                             {title}
-                            {items
-                                .filter((item, idx) => idx < 2)
-                                .map(item => (
-                                    <div>
-
-                                        {item.name}
-                                    </div>
-                                ))}
-
+                            <div>
+                                {items
+                                    .filter((item, idx) => idx < 2)
+                                    .map(item => (
+                                        <div className="padding">
+                                            {item.name} $ {item.price}
+                                        </div>
+                                    ))}
+                            </div>
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
 

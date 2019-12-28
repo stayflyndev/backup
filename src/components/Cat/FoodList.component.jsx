@@ -29,7 +29,7 @@ class FoodList extends Component {
             <Container >
                 <GridList cellHeight={180} className>
                     <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} >
-                        <ListSubheader component="div"><h1>Where Food is Bae</h1></ListSubheader>
+                        <ListSubheader component="div"><h1>L O V E D</h1></ListSubheader>
                     </GridListTile>
                     {this.state.listitems.map(({ id, title, link, price, img }) => (
                         <GridListTile key={id}>
