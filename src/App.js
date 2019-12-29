@@ -6,6 +6,7 @@ import MexicanPage from './pages/Categories/Mexican/Mexican.component'
 import BBQPage from './pages/Categories/Bbq/Bbq.component'
 import ChinesePage from './pages/Categories/Chinese/Chinese.component'
  import JamaicanPage from './pages/Categories/Jamaican/Jamaican.component'
+ import Register from './pages/Login/Login'
  import Shop from './pages/Shop/Shop.component'
  import Header from './components/NavBar/NavBar.component'
 
@@ -24,6 +25,9 @@ function App() {
       <Route  path='/chinese/' component={ChinesePage} />
       <Route  path='/bbq/' component={BBQPage} />
       <Route path='/shop' component={Shop} />
+      <Route path='/login' component={Register} />
+
+
 
 
    

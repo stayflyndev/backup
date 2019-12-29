@@ -46,3 +46,14 @@
  
   align-content: center;
 }
+
+.login-title{
+  padding: 20px;
+}
+
+.form{
+  padding-top: 90px;
+}
+.formSpan{
+  padding-bottom: 40px;
+}
