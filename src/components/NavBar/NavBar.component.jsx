@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Register from '../Login/Register/Register.component'
 import { Link } from 'react-router-dom';
+import {auth} from '../../firebase/firebase.utils';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const NavBar = () => {
+const NavBar = ({currentUser}) => {
     const classes = useStyles();
 
     return (
@@ -36,8 +37,14 @@ const NavBar = () => {
           Where Food is ...
             </Typography>
            
-            <Button component={Link} to='/login' color="inherit">Login</Button>
-           
+            {/* <Button component={Link} to='/login' color="inherit">Login</Button> */}
+          
+           { //if current user is signed in, show sign out, else  
+             currentUser ?
+             <Button onClick={ ()=> auth.signOut()} >Sign Out</Button>          
+             :
+             <Button component={Link} to='/login'>Sign In</Button>             
+           }
           </Toolbar>
         </AppBar>
       </div>

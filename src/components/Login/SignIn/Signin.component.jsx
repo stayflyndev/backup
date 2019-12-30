@@ -5,12 +5,15 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from "@material-ui/styles";
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
+import Button from '@material-ui/core/Button';
+import  {SignInWithGoogle} from '../../../firebase/firebase.utils'
 
 
 const theme = createMuiTheme({
   palette: {
     primary: purple,
-    secondary: green
+    secondary: green,
+    testing: purple
   },
 });
 
@@ -54,7 +57,11 @@ class Signin extends Component {
                 <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
                     <Input name="email" label='email' type="email" value={this.state.email} placeholder="email" color="primary" inputProps={{ 'aria-label': 'description' }}  onChange={this.handleChange} />
                     <Input name="password" label='password' type="password"  value={this.state.password} placeholder="password"  color="secondary" inputProps={{ 'aria-label': 'description' }} onChange={this.handleChange} />
-                    <Input type="submit" value="submit form" />
+                   
+                    <Button color="primary" type="submit" value="submit form" >Sign In </Button>
+                    <Button color="primary" onClick={SignInWithGoogle} >SIGN IN WITH GOOGLE </Button>
+
+                 
                 </form>
                 
                 </div>
