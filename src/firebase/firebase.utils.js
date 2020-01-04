@@ -62,4 +62,13 @@ const config =
 const provider = new firebase.auth.GoogleAuthProvider();
 export const SignInWithGoogle = () => auth.signInWithRedirect(provider);
 
+
+// store the authenticated user in the firestore (database) 
+export const storeUserProfileDocument = async (authUser, otherDetails) => {
+  if(!authUser) return //exit;
+
+console.log(firestore.doc('users/8'))
+
+} 
+
 export default firebase
