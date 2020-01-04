@@ -9,7 +9,7 @@ import JamaicanPage from './pages/Categories/Jamaican/Jamaican.component'
 import Register from './pages/Login/Login'
 import Shop from './pages/Shop/Shop.component'
 import Header from './components/NavBar/NavBar.component'
-import { auth, storeUserProfileDoc } from './firebase/firebase.utils'
+import { auth, storeUserProfileDocument } from './firebase/firebase.utils'
 
 class App extends Component {
   constructor(props) {
@@ -29,9 +29,23 @@ class App extends Component {
     // subscriber --  // always open
 
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
-      console.log(this.state.currentUser)
+    this.unsubscribeFromAuth = auth.onAuthStateChanged( async authUser => {
+     if (authUser) {
+       const userRef = await storeUserProfileDocument(authUser);
+
+      //  get the snapshot details to set the state
+       userRef.onSnapshot(snapShot => {
+         this.setState({currentUser: {
+           id: snapShot.id,
+           ...snapShot.data()
+         }}, () => {
+          console.log(this.state)
+
+         })
+        
+       })
+     }
+     this.setState({ currerntUser: authUser})
     })
 
   }
