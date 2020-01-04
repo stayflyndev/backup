@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import 'firebase/auth';
+import 'firebase/auth'; //.auth method
 import 'firebase/firestore'
 
 const config =
@@ -14,6 +14,43 @@ const config =
     measurementId: "G-8X9TLQ3Z1S"
   }
 
+
+
+
+//   userauth is the object after signing in 
+  // export const createUserProfileDoc = async (userAuth, additionalData) => {
+
+  //   if(!userAuth) return;
+  //   const userRef = firestore.doc(`users/${userAuth.uid}`)
+   
+  //   const snapShot = await userRef.get()
+  //   console.log(snapShot)
+  //   console.log(userRef)
+
+  //   if(!snapShot.exists){
+  //       // what data to use to create the fb doc?
+
+  //       const {displayName, email } = userAuth;
+  //       const createdAt = new Date();
+
+  //       try {
+  //           await userRef.set({
+  //               displayName,
+  //               email,
+  //               createdAt,
+  //               ...additionalData
+  //           })
+
+  //       } catch (error){
+  //           console.log('error : ' + error.message)
+  //       }
+  //   }
+
+  //   return userRef
+  // }
+
+
+  // firebase setup  
   firebase.initializeApp(config);
 
   export const auth = firebase.auth();

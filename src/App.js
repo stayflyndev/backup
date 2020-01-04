@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import HomePage from './pages/Hompage/Homepage';
 import { Route } from 'react-router-dom';
 import MexicanPage from './pages/Categories/Mexican/Mexican.component'
 import BBQPage from './pages/Categories/Bbq/Bbq.component'
 import ChinesePage from './pages/Categories/Chinese/Chinese.component'
- import JamaicanPage from './pages/Categories/Jamaican/Jamaican.component'
- import Register from './pages/Login/Login'
- import Shop from './pages/Shop/Shop.component'
- import Header from './components/NavBar/NavBar.component'
-import {auth} from './firebase/firebase.utils'
+import JamaicanPage from './pages/Categories/Jamaican/Jamaican.component'
+import Register from './pages/Login/Login'
+import Shop from './pages/Shop/Shop.component'
+import Header from './components/NavBar/NavBar.component'
+import { auth, createUserProfileDoc } from './firebase/firebase.utils'
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     // signed in?
@@ -27,42 +27,45 @@ class App extends Component {
     // whens someone signs in/out be aware without having to manually fetch
     // always aware when fb auth state has changed
     // subscriber --  // always open
+
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({currentUser: user})
-      console.log(user)
-    });    
+      this.setState({ currentUser: user })
+      console.log(this.state.currentUser)
+    })
+
   }
-  
+
   componentWillUnmount() {
     // will close the subsciption
     this.unsubscribeFromAuth();
   }
-  
 
- render() {
-   
-  return(
-    <div className="App">
-     {/* start of the APP  *
+
+  render() {
+
+    return (
+      <div className="App">
+        {/* start of the APP  *
      {/* nav bar and listing of categories */
-      }
-      <Header currentUser={this.state.currentUser}/>
-      <Route exact path='/' component={HomePage} />
-      <Route  path='/mexican/' component={MexicanPage} />
-      <Route  path='/jamaican/' component={JamaicanPage} />
-      <Route  path='/chinese/' component={ChinesePage} />
-      <Route  path='/bbq/' component={BBQPage} />
-      <Route path='/shop' component={Shop} />
-      <Route path='/login' component={Register} />
+        }
+        <Header currentUser={this.state.currentUser} />
+        <Route exact path='/' component={HomePage} />
+        <Route path='/mexican/' component={MexicanPage} />
+        <Route path='/jamaican/' component={JamaicanPage} />
+        <Route path='/chinese/' component={ChinesePage} />
+        <Route path='/bbq/' component={BBQPage} />
+        <Route path='/shop' component={Shop} />
+        <Route path='/login' component={Register} />
 
 
 
 
-   
-     </div>
-  )
-   
-    };
+
+      </div>
+    )
+
+  };
 }
 
 export default App;
