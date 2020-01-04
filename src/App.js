@@ -27,13 +27,11 @@ class App extends Component {
     // whens someone signs in/out be aware without having to manually fetch
     // always aware when fb auth state has changed
     // subscriber --  // always open
-
-
     this.unsubscribeFromAuth = auth.onAuthStateChanged( async authUser => {
      if (authUser) {
        const userRef = await storeUserProfileDocument(authUser);
 
-      //  get the snapshot details to set the state
+      //  get the snapshot details in order to set the state
        userRef.onSnapshot(snapShot => {
          this.setState({currentUser: {
            id: snapShot.id,
@@ -45,7 +43,7 @@ class App extends Component {
         
        })
      }
-     this.setState({ currerntUser: authUser})
+     this.setState({ currentUser: authUser})
     })
 
   }
